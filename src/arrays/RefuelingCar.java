@@ -3,19 +3,17 @@ package arrays;
 public class RefuelingCar {
     public static void main(String[] args)
     {
-        int startFuel=5;
-        int target=40;
-
+        int startFuel=1;
+        int target=100;
         //array contains 2 stations
-        int[][] stations={{10,50},{4,20}};
+        int[][] stations={{10,100}};
         System.out.println(minRefuelStops(target,startFuel,stations));
     }
     static int minRefuelStops(int target, int startFuel, int[][] stations)
     {
         int count=0;
-
         //eventually we are covering target distance. so, untill the distance become 0 we are searching
-        while(target>=0)
+        while(target>0)
         {
             //checks if the target distance is less than the fuel in car then no need to stop at station
             if(startFuel>=target)
@@ -24,10 +22,9 @@ public class RefuelingCar {
             }
             // if the target distance is more than fuel in car then it will seeks for a nearer station
             else if (startFuel<=target)
-
             {
                 // loop for stations
-                for(int i=0;i<=stations.length-1;i++)
+                for(int i=0;i<stations.length;i++)
                 {
                     // checks whether the distance for the station is less than fuel available in car or not
                     if (stations[i][0] <= startFuel)
@@ -43,6 +40,7 @@ public class RefuelingCar {
             else{
                 return -1;
             }
+            target=-1;
         }
         return -1;
     }
