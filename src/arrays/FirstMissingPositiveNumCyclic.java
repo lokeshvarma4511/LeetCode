@@ -15,7 +15,7 @@ public class FirstMissingPositiveNumCyclic
         {
             int cor=arr[i]-1;
             if (arr[i] >0 && arr[i] != arr[cor] && arr[i]  <  arr.length+1) {
-                swap(arr, arr[i], i) ;
+                swap(arr, i, cor) ;
             }
             else
             {
