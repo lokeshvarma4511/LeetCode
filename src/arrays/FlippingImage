@@ -1,0 +1,27 @@
+package company.leetcode;
+
+import java.util.Arrays;
+
+public class FlippingImage {
+    public static void main(String[] args) {
+        int[][]arr1={{0,1,1},{1,0,0},{0,0,0}};
+        System.out.println(Arrays.deepToString(flippingImage(arr1)));
+    }
+    private static int[][] flippingImage(int[][] arr1)
+    {
+        //accessing 1d array first
+        for (int[]i:arr1)
+        {
+            // accessing elements
+            for (int j = 0; j < (arr1[0].length+1)/2 ; j++)
+            {
+                //swapping and XORing
+                int temp = i[j]^1;
+                i[j]=i[(arr1[0].length-1-j)]^1;
+                i[(arr1[0].length-1-j) ]=temp;
+            }
+        }
+        //returning the flipped and inverted array
+        return arr1;
+    }
+}
